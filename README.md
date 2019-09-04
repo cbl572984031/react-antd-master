@@ -32,7 +32,9 @@ npm run build
 ## 插件说明
 
 react-color                     拾色器
-react-free-scrollbar            可定制的滚动条
-react-beautiful-dnd             拖拽组件
-react-loadable                  路由懒加载
 
+react-free-scrollbar            可定制的滚动条
+
+react-beautiful-dnd             拖拽组件
+
+react-loadable                  路由懒加载
