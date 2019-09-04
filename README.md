@@ -11,6 +11,10 @@ cd react-antd-master
 npm install || cnpm install
 
 npm start
+
+浏览器：http://localhost:3000/
+
+npm run build
 ```
 
 ## 目录介绍
