@@ -1,0 +1,50 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+// 滑动框
+.FreeScrollbar-vertical-track {
+    background: transparent !important;
+    border: none !important;
+    .FreeScrollbar-vertical-handler {
+        width: 6px !important;
+        border-radius: 3px !important;
+        opacity: 0.3 !important;
+    }
+}
+
+#root {
+    height: 100%;
+    .App {
+        height: 100%;
+        .ant-layout-sider-children {
+            overflow-y: auto;
+            overflow-x: hidden;
+            .ant-menu {
+                background: transparent;
+                font-size: 0;
+                border: none;
+                .ant-menu-item-selected {
+                    width: 256px;
+                }
+                .anticon {
+                    color: #fff;
+                }
+                .nav-text {
+                    color: #fff;
+                }
+                .ant-menu-submenu-arrow {
+                    &::before {
+                        content: " ";
+                        background-color: #fff;
+                    }
+                    &::after {
+                        content: " ";
+                        background-color: #fff;
+                    }
+                }
+            }
+        }
+    }
+}
