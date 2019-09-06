@@ -5,6 +5,8 @@ react@16.9.0 + react-redux@7.1.1 + react-router-dom@5.0.1 + antd@3.22.1
 
 ## 项目介绍
 
+如有路径问题，请将react-scripts/config/webpack.config.js 下 alias 添加 '@': paths.appSrc ，配置全局资源路径
+
 ```
 cd react-antd-master
 

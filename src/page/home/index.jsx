@@ -2,7 +2,8 @@ import React from 'react'
 import { Comment, Avatar, Form, Button, List, Input } from 'antd';
 import moment from 'moment';
 import { connect } from 'react-redux';
-import { add, remove } from '../store/comment/action';
+import { add, remove } from '@/store/comment/action';
+import { SketchPicker } from 'react-color';
 
 const { TextArea } = Input;
 
@@ -34,8 +35,19 @@ class CommentList extends React.Component {
 class App extends React.Component {
     state = {
         value: '',
-        id: null
-    };
+        id: null,
+        themeColor: localStorage.getItem('@primary-color') || '#1890ff'
+    }
+
+    handlerColorChange(e) {
+        this.setState({
+            themeColor: e.hex
+        })
+        localStorage.setItem('@primary-color', e.hex);
+        window.less.modifyVars({
+            '@primary-color': e.hex
+        })
+    }
 
     handleSubmit = () => {
         if (!this.state.value) {
@@ -74,7 +86,9 @@ class App extends React.Component {
     render() {
         const { value } = this.state;
         return (
-            <div>
+            <React.Fragment>
+                <SketchPicker color={this.state.themeColor} onChangeComplete={(e) => { this.handlerColorChange(e); }} />
+
                 {this.props.comments.length > 0 && <CommentList handleReply={e => { this.setReplyId(e) }} comments={this.props.comments} />}
                 <Comment
                     avatar={
@@ -96,7 +110,7 @@ class App extends React.Component {
                         </div>
                     }
                 />
-            </div>
+            </React.Fragment>
         );
     }
 }

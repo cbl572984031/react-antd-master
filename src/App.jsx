@@ -1,28 +1,28 @@
 import React, { Component } from 'react';
-import { Switch } from 'antd';
-import { SketchPicker } from 'react-color';
-import SiderMenu from './layout/Sider';
-import Form from './page/test';
-import Head from './layout/Head'
+import RHead from './layout/Head'
+import RSider from './layout/Sider';
+import RContent from './layout/Content'
+
 import { Layout } from 'antd';
 
 const { Header, Sider, Content } = Layout;
 
 class App extends Component {
     state = {
-        inlineCollapsed: false,
-        themeColor: localStorage.getItem('@primary-color') || '#1890ff'
+        inlineCollapsed: true,
+        isMobile: false
     }
 
-    handlerColorChange(e) {
-        this.setState({
-            themeColor: e.hex
-        })
-        localStorage.setItem('@primary-color', e.hex);
-        window.less.modifyVars({
-            '@primary-color': e.hex,
-            '@border-color-base': e.hex
-        })
+    componentWillMount() {
+        if (window.innerWidth >= 900) {
+            this.setState({
+                inlineCollapsed: false
+            })
+        } else if (window.innerWidth <= 450) {
+            this.setState({
+                isMobile: true
+            })
+        }
     }
 
     handlerTogglerCollapsed() {
@@ -36,15 +36,16 @@ class App extends Component {
         return (
             <div className="App">
                 <Layout style={{ height: '100%' }}>
-                    <Header>Header<Switch defaultChecked onChange={() => { this.handlerTogglerCollapsed(); }} /></Header>
+                    <Header>
+                        <RHead isMobile={this.state.isMobile} collapsed={this.state.inlineCollapsed} TogglerCollapsed={e => this.handlerTogglerCollapsed()}></RHead>
+                    </Header>
                     <Layout >
-                        <Sider                 breakpoint="lg"
- width={256} collapsed={this.state.inlineCollapsed}>
-                            <SiderMenu />
-                        </Sider>
+                        {!this.state.isMobile &&
+                            <Sider width={256} collapsed={this.state.inlineCollapsed}>
+                                <RSider />
+                            </Sider>}
                         <Content>
-                            <SketchPicker color={this.state.themeColor} onChangeComplete={(e) => { this.handlerColorChange(e); }} />
-                            <Form />
+                            <RContent isMobile={this.state.isMobile}></RContent>
                         </Content>
                     </Layout>
                 </Layout>

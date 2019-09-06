@@ -93,6 +93,7 @@ class Sider extends React.Component {
                             )}
                         </Droppable>
                     </DragDropContext>
+                    {/* 退出拖拽模式 */}
                     {/* <Menu
                     mode="inline"
                     multiple={false}

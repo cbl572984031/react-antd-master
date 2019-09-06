@@ -34,7 +34,8 @@
   "scripts": {
     "start": "node color && react-app-rewired start",
     "build": "node color && react-app-rewired build",
-    "test": "node color && react-app-rewired test"
+    "test": "node color && react-app-rewired test",
+    "eject": "react-scripts eject"
   },
   "browserslist": {
     "production": [

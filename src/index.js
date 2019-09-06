@@ -4,30 +4,38 @@ import { ConfigProvider } from 'antd';
 import zhCN from 'antd/es/locale/zh_CN';
 import moment from 'moment';
 import * as serviceWorker from './serviceWorker';
-import Router from './router/index'
 import { Provider } from 'react-redux'
 import store from './store/index'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import 'moment/locale/zh-cn';
 import './assets/style/main.css';
 import './assets/style/animate.css'
+import Loading from './component/Loading'
+
+const App = Loading(() => import('./App'))
 
 moment.locale('zh-cn');
 
 ReactDOM.render(
     <ConfigProvider locale={zhCN}>
         <Provider store={store}>
-            <Router />
+            <BrowserRouter>
+                <Switch>
+                    <Route path='/login' render={() => {
+                        return <div>login</div>
+                    }}></Route>
+                    <Route path="/" component={App}></Route>
+                </Switch>
+            </BrowserRouter>
         </Provider>
-    </ConfigProvider>
-    ,
+    </ConfigProvider>,
     document.getElementById('root')
 );
 // 切换主题颜色
 if (localStorage.hasOwnProperty('@primary-color') && localStorage.getItem('@primary-color') != '#1890ff') {
     let primaryColor = localStorage.getItem('@primary-color');
     primaryColor && window.less.modifyVars({
-        '@primary-color': primaryColor,
-        '@border-color-base': primaryColor
+        '@primary-color': primaryColor
     });
 }
 
