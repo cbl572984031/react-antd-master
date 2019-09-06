@@ -23,7 +23,7 @@ export const Comment = (state = commentList, action = {}) => {
         case type.ADD_COMMENT:
             if (action.id) {
                 for (let i = 0; i < state.length; i++) {
-                    if (state[i].id == action.id) {
+                    if (state[i].id === action.id) {
                         state[i].children.push(action.data)
                     }
                 }

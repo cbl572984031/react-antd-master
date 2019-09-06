@@ -11,7 +11,7 @@ class Content extends Component {
                     this.props.isMobile ?
                         <Router></Router>
                         :
-                        <FreeScrollBar timeout={300}>
+                        <FreeScrollBar autohide={true} timeout={300}>
                             <Router></Router>
                         </FreeScrollBar>
                 }

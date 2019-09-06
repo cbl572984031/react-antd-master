@@ -2,15 +2,16 @@ import React, { Component } from 'react';
 import RHead from './layout/Head'
 import RSider from './layout/Sider';
 import RContent from './layout/Content'
-
-import { Layout } from 'antd';
+import { SketchPicker } from 'react-color';
+import { Layout, Icon, Popover } from 'antd';
 
 const { Header, Sider, Content } = Layout;
 
 class App extends Component {
     state = {
         inlineCollapsed: true,
-        isMobile: false
+        isMobile: false,
+        themeColor: localStorage.getItem('@primary-color') || '#1890ff'
     }
 
     componentWillMount() {
@@ -32,6 +33,16 @@ class App extends Component {
         });
     }
 
+    handlerColorChange(e) {
+        this.setState({
+            themeColor: e.hex
+        })
+        localStorage.setItem('@primary-color', e.hex);
+        window.less.modifyVars({
+            '@primary-color': e.hex
+        })
+    }
+
     render() {
         return (
             <div className="App">
@@ -46,6 +57,14 @@ class App extends Component {
                             </Sider>}
                         <Content>
                             <RContent isMobile={this.state.isMobile}></RContent>
+
+                            <Popover placement="leftTop" content={
+                                <SketchPicker color={this.state.themeColor} onChangeComplete={(e) => { this.handlerColorChange(e); }} />
+                            } trigger="click">
+                                <div className='color_picker_menu'>
+                                    <Icon type="pic-right" className="color_picker" />
+                                </div>
+                            </Popover>
                         </Content>
                     </Layout>
                 </Layout>

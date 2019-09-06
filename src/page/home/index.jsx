@@ -3,7 +3,6 @@ import { Comment, Avatar, Form, Button, List, Input } from 'antd';
 import moment from 'moment';
 import { connect } from 'react-redux';
 import { add, remove } from '@/store/comment/action';
-import { SketchPicker } from 'react-color';
 
 const { TextArea } = Input;
 
@@ -31,22 +30,11 @@ class CommentList extends React.Component {
         )
     }
 }
-
+ 
 class App extends React.Component {
     state = {
         value: '',
         id: null,
-        themeColor: localStorage.getItem('@primary-color') || '#1890ff'
-    }
-
-    handlerColorChange(e) {
-        this.setState({
-            themeColor: e.hex
-        })
-        localStorage.setItem('@primary-color', e.hex);
-        window.less.modifyVars({
-            '@primary-color': e.hex
-        })
     }
 
     handleSubmit = () => {
@@ -87,10 +75,8 @@ class App extends React.Component {
         const { value } = this.state;
         return (
             <React.Fragment>
-                <SketchPicker color={this.state.themeColor} onChangeComplete={(e) => { this.handlerColorChange(e); }} />
-
                 {this.props.comments.length > 0 && <CommentList handleReply={e => { this.setReplyId(e) }} comments={this.props.comments} />}
-                <Comment
+                {/* <Comment
                     avatar={
                         <Avatar
                             src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
@@ -109,7 +95,7 @@ class App extends React.Component {
                             </Form.Item>
                         </div>
                     }
-                />
+                /> */}
             </React.Fragment>
         );
     }

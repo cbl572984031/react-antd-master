@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Icon, Dropdown, Menu, Popover, Layout, Drawer, Avatar } from 'antd';
+import { Icon, Dropdown, Menu, Popover, Layout, Drawer, Avatar, message } from 'antd';
 import RSider from '../layout/Sider'
 import { Link } from 'react-router-dom'
+import screenfull from 'screenfull'
 
 const { Sider } = Layout
 
@@ -14,6 +15,14 @@ class Head extends Component {
         this.setState({
             visible: !this.state.visible
         })
+    }
+
+    handlerScreenfull() {
+        if (!screenfull.enabled) {
+            message.error('暂不支持全屏')
+            return
+        }
+        screenfull.toggle()
     }
 
     render() {
@@ -64,6 +73,7 @@ class Head extends Component {
                     </React.Fragment>
                 }
                 <div className="userInfo">
+                    <Icon onClick={e => { this.handlerScreenfull() }} style={{ fontSize: '20px', color: '#fff', verticalAlign: 'top', marginTop: '22px', marginRight: '20px' }} type="fullscreen" />
                     <Avatar className="avatar" icon="user" />
                     <Dropdown overlay={menu} trigger={['click']}>
                         <span className="userName">

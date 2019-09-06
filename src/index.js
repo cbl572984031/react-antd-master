@@ -32,7 +32,7 @@ ReactDOM.render(
     document.getElementById('root')
 );
 // 切换主题颜色
-if (localStorage.hasOwnProperty('@primary-color') && localStorage.getItem('@primary-color') != '#1890ff') {
+if (localStorage.hasOwnProperty('@primary-color') && localStorage.getItem('@primary-color') !== '#1890ff') {
     let primaryColor = localStorage.getItem('@primary-color');
     primaryColor && window.less.modifyVars({
         '@primary-color': primaryColor
