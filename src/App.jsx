@@ -3,7 +3,7 @@ import RHead from './layout/Head'
 import RSider from './layout/Sider';
 import RContent from './layout/Content'
 import { SketchPicker } from 'react-color';
-import { Layout, Icon, Popover } from 'antd';
+import { Layout, Icon } from 'antd';
 
 const { Header, Sider, Content } = Layout;
 
@@ -11,19 +11,23 @@ class App extends Component {
     state = {
         inlineCollapsed: true,
         isMobile: false,
-        themeColor: localStorage.getItem('@primary-color') || '#1890ff'
+        themeColor: localStorage.getItem('@primary-color') || '#1890ff',
+        isShowSketchPicker: false
     }
 
-    componentWillMount() {
-        if (window.innerWidth >= 900) {
+    UNSAFE_componentWillMount() {
+        this.setState({
+            inlineCollapsed: window.innerWidth >= 900 ? false : true
+        })
+        this.setState({
+            isMobile: window.innerWidth <= 450 ? true : false
+        })
+
+        window.addEventListener('resize', () => {
             this.setState({
-                inlineCollapsed: false
+                isMobile: window.innerWidth <= 450 ? true : false
             })
-        } else if (window.innerWidth <= 450) {
-            this.setState({
-                isMobile: true
-            })
-        }
+        })
     }
 
     handlerTogglerCollapsed() {
@@ -32,6 +36,7 @@ class App extends Component {
             inlineCollapsed: !inlineCollapsed
         });
     }
+    un
 
     handlerColorChange(e) {
         this.setState({
@@ -50,21 +55,20 @@ class App extends Component {
                     <Header>
                         <RHead isMobile={this.state.isMobile} collapsed={this.state.inlineCollapsed} TogglerCollapsed={e => this.handlerTogglerCollapsed()}></RHead>
                     </Header>
-                    <Layout >
+                    <Layout>
                         {!this.state.isMobile &&
                             <Sider width={256} collapsed={this.state.inlineCollapsed}>
                                 <RSider />
                             </Sider>}
-                        <Content>
+                        <Content style={this.state.isMobile ? { padding: 0 } : {}}>
                             <RContent isMobile={this.state.isMobile}></RContent>
 
-                            <Popover placement="leftTop" content={
-                                <SketchPicker color={this.state.themeColor} onChangeComplete={(e) => { this.handlerColorChange(e); }} />
-                            } trigger="click">
-                                <div className='color_picker_menu'>
-                                    <Icon type="pic-right" className="color_picker" />
+                            <div className={this.state.isShowSketchPicker ? 'color_picker_box color_picker_box_active' : 'color_picker_box'} >
+                                <div className='color_picker_menu' onClick={e => { this.setState({ isShowSketchPicker: !this.state.isShowSketchPicker }) }}><Icon type="pic-right" className="color_picker" /></div>
+                                <div>
+                                    <SketchPicker color={this.state.themeColor} onChangeComplete={(e) => { this.handlerColorChange(e); }} />
                                 </div>
-                            </Popover>
+                            </div>
                         </Content>
                     </Layout>
                 </Layout>

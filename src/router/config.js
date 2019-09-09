@@ -1,12 +1,12 @@
 const Menu = [
     // 菜单相关路由
     {
- key: '/app/dashboard/index', title: '首页', icon: 'mobile', component: 'Dashboard' 
-},
+        key: '/', title: '首页', icon: 'mobile', component: 'Home'
+    },
     {
         key: '/app/ui',
         title: 'UI',
-        icon: 'scan',
+        icon: 'scan', 
         subs: [
             { key: '/app/ui/buttons', title: '按钮', component: 'Buttons' },
             { key: '/app/ui/icons', title: '图标', component: 'Icons' },
@@ -82,10 +82,10 @@ const Menu = [
         ],
     },
     {
-        key: '/app/cssModule',
-        title: 'cssModule',
+        key: '/swiper',
+        title: '轮播图',
         icon: 'star',
-        component: 'Cssmodule',
+        component: 'Swiper',
     },
     {
         key: '/app/extension',

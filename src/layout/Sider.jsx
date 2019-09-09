@@ -3,6 +3,7 @@ import menus from '../router/config'
 import { Menu, Icon } from 'antd';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 import FreeScrollBar from 'react-free-scrollbar'
+import { Link } from 'react-router-dom'
 
 const { SubMenu } = Menu;
 
@@ -10,8 +11,10 @@ let MenuList = menus
 
 const renderMenuItem = item => {
     return <Menu.Item key={item.key}>
-        {item.icon && <Icon type={item.icon} />}
-        <span className="nav-text">{item.title}</span>
+        <Link to={item.key}>
+            {item.icon && <Icon type={item.icon} />}
+            <span className="nav-text">{item.title}</span>
+        </Link>
     </Menu.Item>
 };
 
@@ -29,6 +32,7 @@ const renderSubMenu = item => {
     </SubMenu>
 }
 
+/* eslint-disable no-unused-vars */
 const renderMenuList = (list = MenuList) => {
     list = list.map(item => {
         if (item.subs) {
@@ -43,6 +47,16 @@ const renderMenuList = (list = MenuList) => {
 
 class Sider extends React.Component {
 
+    state = {
+        selectedKeys: ['/']
+    }
+
+    UNSAFE_componentWillMount() {
+        this.setState({
+            selectedKeys: [window.location.pathname]
+        })
+    }
+
     reorder = (list, startIndex, endIndex) => {
         const result = Array.from(list);
         const [removed] = result.splice(startIndex, 1);
@@ -56,6 +70,12 @@ class Sider extends React.Component {
         }
         MenuList = this.reorder(MenuList, result.source.index, result.destination.index);
     };
+
+    handlerMenuClick = (item) => {
+        this.setState({
+            selectedKeys: [item.key]
+        })
+    }
 
     render() {
         return (
@@ -77,6 +97,8 @@ class Sider extends React.Component {
                                                         <Menu
                                                             mode="inline"
                                                             multiple={false}
+                                                            onSelect={this.handlerMenuClick}
+                                                            selectedKeys={this.state.selectedKeys}
                                                         >
                                                             {item.subs
                                                                 ? renderSubMenu(item)

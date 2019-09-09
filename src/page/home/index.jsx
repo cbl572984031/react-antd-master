@@ -15,7 +15,6 @@ class CommentList extends React.Component {
                 itemLayout="horizontal"
                 renderItem={props =>
                     <Comment {...props}
-                        className='animated rollIn'
                         actions={props.id ? [<span
                             onClick={e => { this.props.handleReply(props.id) }}
                             key="comment-list-reply-to-0" >Reply to</span>
@@ -30,8 +29,8 @@ class CommentList extends React.Component {
         )
     }
 }
- 
-class App extends React.Component {
+
+class Home extends React.Component {
     state = {
         value: '',
         id: null,
@@ -76,7 +75,7 @@ class App extends React.Component {
         return (
             <React.Fragment>
                 {this.props.comments.length > 0 && <CommentList handleReply={e => { this.setReplyId(e) }} comments={this.props.comments} />}
-                {/* <Comment
+                <Comment
                     avatar={
                         <Avatar
                             src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
@@ -95,7 +94,7 @@ class App extends React.Component {
                             </Form.Item>
                         </div>
                     }
-                /> */}
+                />
             </React.Fragment>
         );
     }
@@ -106,4 +105,4 @@ export default connect(state => ({
 }), {
         add,
         remove
-    })(App)
+    })(Home)

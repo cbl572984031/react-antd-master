@@ -1,19 +1,18 @@
 import * as type from './actionTypes'
 import React from 'react'
-import moment from 'moment';
 
 let commentList = [{
     id: '1',
     author: 'Han Solo',
     avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
     content: <p>456</p>,
-    datetime: moment().fromNow(),
+    datetime: '2019-09-09 10:00:00',
     children: [
         {
             author: 'Han Solo',
             avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
             content: <p>123</p>,
-            datetime: moment().fromNow()
+            datetime: '2019-09-09 10:00:01',
         }
     ]
 }]

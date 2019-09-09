@@ -49,5 +49,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "eslintConfig": {
+    "extends": "react-app",
+    "rules": {
+      "eqeqeq": "off",
+      "no-useless-constructor": "off",
+      "array-callback-return": "off"
+    }
   }
 }

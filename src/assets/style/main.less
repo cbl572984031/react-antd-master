@@ -1,8 +1,10 @@
 @import './variables.less';
+
 * {
     padding: 0;
     margin: 0;
 }
+
 html,
 body {
     min-height: 100%;
@@ -14,15 +16,18 @@ body {
     .FreeScrollbar-vertical-track {
         background: transparent !important;
         border: none !important;
+
         .FreeScrollbar-vertical-handler {
             width: 6px !important;
             border-radius: 3px !important;
             opacity: 0.3 !important;
         }
     }
+
     .FreeScrollbar-horizontal-track {
         display: none !important;
     }
+
     .FreeScrollbar-square {
         background: transparent !important;
     }
@@ -40,6 +45,7 @@ body {
     text-size-adjust: 100%;
     height: 100%;
     min-height: 100%;
+
     .scene {
         width: 100%;
         height: 100%;
@@ -47,12 +53,14 @@ body {
         perspective: 600;
         display: flex;
         align-items: center;
+
         svg {
             width: 200px;
             height: 200px;
             margin: auto;
         }
     }
+
     // justify-content: center svg {
     //     width: 240px;
     //     height: 240px;
@@ -122,21 +130,26 @@ body {
 .ant-layout-sider-children {
     overflow-y: auto !important;
     overflow-x: hidden !important;
+
     .ant-menu {
         background: transparent !important;
         font-size: 0 !important;
         border: none !important;
+
         .anticon {
             color: #fff !important;
         }
+
         .nav-text {
             color: #fff !important;
         }
+
         .ant-menu-submenu-arrow {
             &::before {
                 content: " ";
                 background-color: #fff !important;
             }
+
             &::after {
                 content: " ";
                 background-color: #fff !important;
@@ -147,41 +160,63 @@ body {
 
 #root {
     height: 100%;
+
     .App {
         height: 100%;
+
         .ant-layout-content {
             padding: 15px;
+
             #centent {
                 overflow: hidden;
                 overflow-y: auto;
-                background: #fff;
                 border-radius: 6px;
                 width: 100%;
                 height: 100%;
                 position: relative;
+                background: #fff;
             }
-            .color_picker_menu {
-                width: 40px;
-                height: 40px;
+
+            .color_picker_box_active {
+                transform: translateX(5px) !important;
+            }
+
+            .color_picker_box {
+                padding: 10px;
                 position: fixed;
-                top: 180px;
-                border-radius: 6px 0 0 6px;
-                border: 1px solid @primary-color;
-                border-right-color: transparent;
+                top: 150px;
+                border: 1px solid rgba(120, 120, 120, 0.1);
                 right: 0;
-                text-align: center;
-                font-size: 20px;
-                cursor: pointer;
-                .color_picker {
-                    color: @primary-color;
-                    vertical-align: top;
-                    margin-top: 10px;
+                transform: translateX(242px);
+                transition: 0.2s;
+                background: #fff;
+                z-index: 10000;
+
+                .color_picker_menu {
+                    cursor: pointer;
+                    position: absolute;
+                    padding: 10px;
+                    z-index: 2;
+                    line-height: 14px;
+                    border: 1px solid rgba(120, 120, 120, 0.1);
+                    border-right-width: 0;
+                    left: -35px;
+                    top: -1px;
+                    background: #fff;
+
+                    .color_picker {
+                        color: #222428;
+                    }
                 }
+
+
             }
         }
+
         .ant-layout-header {
             padding: 0;
             line-height: 64px;
+
             #header {
                 .logo {
                     background: #fff;
@@ -193,6 +228,7 @@ body {
                     transition: 0.2s;
                     vertical-align: top;
                 }
+
                 .mini_logo {
                     background: #fff;
                     width: 60px;
@@ -203,6 +239,7 @@ body {
                     transition: 0.2s;
                     vertical-align: top;
                 }
+
                 .menu_trigger {
                     font-size: 18px;
                     color: #fff;
@@ -210,6 +247,7 @@ body {
                     vertical-align: top;
                     padding: 0 20px;
                 }
+
                 .userInfo {
                     position: absolute;
                     right: 40px;
@@ -237,9 +275,105 @@ body {
         }
     }
 }
+
 .mobile_Drawer {
     .ant-drawer-body {
         height: 100%;
         padding: 0;
+    }
+}
+
+// 轮播图
+#banner_one {
+    position: relative;
+    overflow: hidden;
+
+    .banner-view {
+        position: relative;
+        height: 100%;
+        z-index: 999;
+        background-color: #090b22;
+        background-repeat: no-repeat;
+    }
+
+    .banner-view i {
+        position: relative;
+        display: block;
+        float: left;
+        background-repeat: no-repeat;
+    }
+
+    .banner-btn {
+        position: absolute;
+        width: 100%;
+        height: 0;
+        top: 45%;
+        font-family: "宋体";
+        font-size: 20px;
+        z-index: 1000;
+    }
+
+    .banner-btn span {
+        display: block;
+        float: left;
+        width: 50px;
+        line-height: 50px;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: #74dcff;
+        cursor: pointer;
+        font-weight: 800;
+    }
+
+    .banner-btn span:hover {
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .banner-btn span+span {
+        float: right;
+    }
+
+    .banner-number {
+        position: absolute;
+        bottom: 35px;
+        width: 100%;
+        height: 0;
+        font-size: 0;
+        text-align: center;
+        z-index: 1000;
+    }
+
+    .banner-number>* {
+        display: inline-block;
+        border: 2px solid #fff;
+        border-radius: 50%;
+        margin: 0 8px;
+        width: 10px;
+        height: 10px;
+        background-color: #00c3ff;
+        cursor: pointer;
+    }
+
+    .banner-number>*:hover,
+    .banner-number>*.on {
+        background-color: #ffc300;
+    }
+
+    .banner-progres {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        height: 3px;
+        z-index: 1000;
+    }
+
+    .banner-progres i {
+        position: absolute;
+        left: 0;
+        top: 0;
+        border-radius: 3px;
+        display: block;
+        height: 100%;
+        width: 0;
     }
 }
