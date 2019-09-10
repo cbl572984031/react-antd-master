@@ -177,15 +177,14 @@ class FragmentBanner {
             //下次播放动画时候的进度条
             this.setCss(this.progre[1], {
                 width: 0
-            })
-                .anime(this.progre[1], {
-                    width: this.size.width
-                }, this.fnTime, function () {
-                    this.show({
-                        switch: true,
-                        change: true
-                    });
-                }.bind(this));
+            }).anime(this.progre[1], {
+                width: this.size.width
+            }, this.fnTime, function () {
+                this.show({
+                    switch: true,
+                    change: true
+                });
+            }.bind(this));
             var status = true,
                 activeTime = 0;
             for (var i = 0, iL = this.elem.viewBox.length; i < iL; i++) {
@@ -213,12 +212,11 @@ class FragmentBanner {
 
                     this.setCss(obj, {
                         backgroundImage: 'url("' + this.imgs[this.index] + '")'
-                    })
-                        .anime(obj, {
-                            left: 0,
-                            top: 0,
-                            opacity: 1
-                        }, endTime[0]);
+                    }).anime(obj, {
+                        left: 0,
+                        top: 0,
+                        opacity: 1
+                    }, endTime[0]);
                 }.bind(this, obj));
             }
 
@@ -227,10 +225,9 @@ class FragmentBanner {
 
             this.setCss(this.progre[0], {
                 width: 0
-            })
-                .anime(this.progre[0], {
-                    width: this.size.width
-                }, activeTime);
+            }).anime(this.progre[0], {
+                width: this.size.width
+            }, activeTime);
         }
     }
 
@@ -275,7 +272,6 @@ class FragmentBanner {
                 }
             })();
         } else {
-
             ref();
         }
 
@@ -291,9 +287,12 @@ class FragmentBanner {
                     obj.style[key] = val + 'px';
                 }
             }
-
             (prop === 1) && callback && callback.call(obj);
         };
+    }
+
+    clear() {
+        this.anime = function () { }
     }
 }
 

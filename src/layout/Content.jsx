@@ -6,13 +6,13 @@ class Content extends Component {
 
     render() {
         return (
-            <div id='centent'>
+            <div id='centent' style={this.props.isMobile ? {} : { borderRadius: '6px' }}>
                 {
                     this.props.isMobile ?
-                        <Router></Router>
+                        <Router {...this.props}></Router>
                         :
                         <FreeScrollBar autohide={true} timeout={300}>
-                            <Router></Router>
+                            <Router {...this.props}></Router>
                         </FreeScrollBar>
                 }
             </div>

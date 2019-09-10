@@ -1,29 +1,4 @@
 import React, { Component } from 'react';
-import Loadable from 'react-loadable';
-import '@/assets/style/Loading/index.css'
-
-//通用的过场组件
-const loadingComponent = (props) => {
-    if (props.error) {
-        return <div>Error! <button onClick={props.retry}>Retry</button></div>;
-    } else if (props.timedOut) {
-        return <div>Taking a long time... <button onClick={props.retry}>Retry</button></div>;
-    } else if (props.pastDelay) {
-        return <Loading></Loading>
-    } else {
-        return null;
-    }
-}
-
-//过场组件默认采用通用的，若传入了loading，则采用传入的过场组件
-const loadable = (loader, loading = loadingComponent) => {
-    return Loadable({
-        loader,
-        loading,
-        delay: 0, //页面加载超过这个ms，pastDelay为true，将显示加载标签
-        timeout: 10000 // 页面加载超时，timedOut属性为true，可提升展示刷新按钮
-    });
-}
 
 class Loading extends Component {
     render() {
@@ -64,4 +39,4 @@ class Loading extends Component {
     }
 }
 
-export default loadable;
+export default Loading;

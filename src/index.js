@@ -13,6 +13,7 @@ import './assets/style/animate.css'
 import Loading from './component/Loading'
 
 const App = Loading(() => import('./App'))
+const Login = Loading(() => import('./page/login'))
 
 moment.locale('zh-cn');
 
@@ -22,8 +23,8 @@ ReactDOM.render(
             <BrowserRouter>
                 <Switch>
                     <Route path='/login' render={() => {
-                        return <div>login</div>
-                    }}></Route>
+                        return <Login></Login>
+                    }} />
                     <Route path="/" component={App}></Route>
                 </Switch>
             </BrowserRouter>

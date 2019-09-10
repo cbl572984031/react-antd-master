@@ -118,7 +118,7 @@ class Sider extends React.Component {
                     {/* 退出拖拽模式 */}
                     {/* <Menu
                     mode="inline"
-                    multiple={false}
+                    multiple={false} 
                 >
                     {renderMenuList()}
                 </Menu> */}
@@ -128,4 +128,4 @@ class Sider extends React.Component {
     }
 }
 
-export default Sider;
+export default Sider; 
