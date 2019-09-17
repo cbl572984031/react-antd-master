@@ -34,7 +34,6 @@ class App extends Component {
             inlineCollapsed: !inlineCollapsed
         });
     }
-    un
 
     handlerColorChange(e) {
         this.setState({
@@ -59,7 +58,7 @@ class App extends Component {
                                 <RSider />
                             </Sider>}
                         <Content style={this.props.isMobile ? { padding: 0 } : {}}>
-                            <RContent isMobile={this.props.isMobile}></RContent>
+                            <RContent {...this.props} isMobile={this.props.isMobile} />
 
                             <div className={this.state.isShowSketchPicker ? 'color_picker_box color_picker_box_active' : 'color_picker_box'} >
                                 <div className='color_picker_menu' onClick={e => { this.setState({ isShowSketchPicker: !this.state.isShowSketchPicker }) }}><Icon type="pic-right" className="color_picker" /></div>
@@ -71,7 +70,7 @@ class App extends Component {
                     </Layout>
                 </Layout>
             </div>
-        );
+        )
     }
 }
 

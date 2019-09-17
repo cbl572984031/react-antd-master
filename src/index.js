@@ -13,7 +13,7 @@ import './assets/style/animate.css'
 import Loading from './component/Loading'
 
 const App = Loading(() => import('./App'))
-const Login = Loading(() => import('./page/login'))
+const Login = Loading(() => import('./page/Login'))
 
 moment.locale('zh-cn');
 
@@ -22,23 +22,24 @@ ReactDOM.render(
         <Provider store={store}>
             <BrowserRouter>
                 <Switch>
-                    <Route path='/login' render={() => {
-                        return <Login></Login>
+                    <Route path='/login' render={props => {
+                        return <Login {...props} />
                     }} />
-                    <Route path="/" component={App}></Route>
+                    <Route path="/" render={props => <App {...props} />}></Route>
                 </Switch>
             </BrowserRouter>
         </Provider>
     </ConfigProvider>,
     document.getElementById('root')
 );
-// 切换主题颜色
+
+// theme toggle color                                                                                                         
 if (localStorage.hasOwnProperty('@primary-color') && localStorage.getItem('@primary-color') !== '#1890ff') {
     let primaryColor = localStorage.getItem('@primary-color');
     primaryColor && window.less.modifyVars({
         '@primary-color': primaryColor
     });
-}
+};
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

@@ -4,6 +4,7 @@ import { Menu, Icon } from 'antd';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 import FreeScrollBar from 'react-free-scrollbar'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux';
 
 const { SubMenu } = Menu;
 
@@ -81,51 +82,56 @@ class Sider extends React.Component {
         return (
             <div id="menu" style={{ width: '100%', height: '100%', userSelect: 'none' }}>
                 <FreeScrollBar autohide={true} timeout={300}>
-                    <DragDropContext onDragEnd={this.onDragEnd}>
-                        <Droppable droppableId="droppable">
-                            {(provided, snapshot) => (
-                                <div ref={provided.innerRef} {...provided.droppableProps} >
-                                    {MenuList.map((item, index) => {
-                                        return <Draggable key={item.key} draggableId={item.key} index={index}>
-                                            {(provided, snapshot) => (
-                                                <div>
-                                                    <div
-                                                        ref={provided.innerRef}
-                                                        {...provided.dragHandleProps}
-                                                        {...provided.draggableProps}
-                                                    >
-                                                        <Menu
-                                                            mode="inline"
-                                                            multiple={false}
-                                                            onSelect={this.handlerMenuClick}
-                                                            selectedKeys={this.state.selectedKeys}
-                                                        >
-                                                            {item.subs
-                                                                ? renderSubMenu(item)
-                                                                : renderMenuItem(item)}
-                                                        </Menu>
-                                                    </div>
-                                                    {provided.placeholder}
-                                                </div>
-                                            )}
-                                        </Draggable>
-                                    })}
-                                    {provided.placeholder}
-                                </div>
-                            )}
-                        </Droppable>
-                    </DragDropContext>
-                    {/* 退出拖拽模式 */}
-                    {/* <Menu
-                    mode="inline"
-                    multiple={false} 
-                >
-                    {renderMenuList()}
-                </Menu> */}
+                    {
+                        !this.props.isMobile ?
+                            <DragDropContext onDragEnd={this.onDragEnd}>
+                                <Droppable droppableId="droppable">
+                                    {(provided, snapshot) => (
+                                        <div ref={provided.innerRef} {...provided.droppableProps} >
+                                            {MenuList.map((item, index) => {
+                                                return <Draggable key={item.key} draggableId={item.key} index={index}>
+                                                    {(provided, snapshot) => (
+                                                        <div>
+                                                            <div
+                                                                ref={provided.innerRef}
+                                                                {...provided.dragHandleProps}
+                                                                {...provided.draggableProps}
+                                                            >
+                                                                <Menu
+                                                                    mode="inline"
+                                                                    multiple={false}
+                                                                    onSelect={this.handlerMenuClick}
+                                                                    selectedKeys={this.state.selectedKeys}
+                                                                >
+                                                                    {item.subs
+                                                                        ? renderSubMenu(item)
+                                                                        : renderMenuItem(item)}
+                                                                </Menu>
+                                                            </div>
+                                                            {provided.placeholder}
+                                                        </div>
+                                                    )}
+                                                </Draggable>
+                                            })}
+                                            {provided.placeholder}
+                                        </div>
+                                    )}
+                                </Droppable>
+                            </DragDropContext> :
+                            < Menu
+                                mode="inline"
+                                multiple={false}
+                            >
+                                {renderMenuList()}
+                            </Menu>
+                    }
+
                 </FreeScrollBar>
-            </div>
+            </div >
         );
     }
 }
 
-export default Sider; 
+export default connect(state => ({
+    isMobile: state.isMobile
+}), {})(Sider); 

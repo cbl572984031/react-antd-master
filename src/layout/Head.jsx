@@ -7,8 +7,11 @@ import screenfull from 'screenfull'
 const { Sider } = Layout
 
 class Head extends Component {
-    state = {
-        visible: false
+    constructor() {
+        super()
+        this.state = {
+            visible: false
+        }
     }
 
     visibleClose() {

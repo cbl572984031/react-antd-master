@@ -16,6 +16,10 @@ body {
 
 // 滑动框
 .FreeScrollbar {
+    .FreeScrollbar-container {
+        padding-right: 0 !important;
+    }
+
     .FreeScrollbar-vertical-track {
         background: transparent !important;
         border: none !important;
@@ -36,6 +40,8 @@ body {
     }
 }
 
+// 左侧菜单栏
+
 .ant-layout-sider-children {
     overflow-y: auto !important;
     overflow-x: hidden !important;
@@ -46,11 +52,11 @@ body {
         border: none !important;
 
         .anticon {
-            color: #fff !important;
+            color: #fff;
         }
 
         .nav-text {
-            color: #fff !important;
+            color: #fff;
         }
 
         .ant-menu-submenu-arrow {
@@ -67,6 +73,7 @@ body {
     }
 }
 
+// 结构
 #root {
     height: 100%;
 
@@ -82,7 +89,6 @@ body {
                 width: 100%;
                 height: 100%;
                 position: relative;
-                background: #fff;
                 font-size: 0;
             }
 
@@ -564,6 +570,65 @@ body {
                 background: #409eff;
                 font-size: 18px;
                 letter-spacing: 12px;
+            }
+        }
+    }
+}
+
+// UI 
+.button_dome {
+    .ant-col {
+        padding-bottom: 20px;
+    }
+
+    .ant-btn {
+        margin: 0 10px 10px 0;
+    }
+}
+
+.icon_dome {
+    .ant-col {
+        padding-bottom: 20px;
+    }
+
+    i {
+        font-size: 30px;
+        color: #333;
+        margin: 0 10px 0 0;
+    }
+
+    .list {
+        list-style: none;
+
+        li {
+            display: inline-block;
+            width: 20%;
+            max-width: 140px;
+            height: 100px;
+            padding-top: 10px;
+            text-align: center;
+            vertical-align: top;
+            border-radius: 2px;
+
+            &:hover {
+                background: rgba(0, 0, 0, 0.4);
+
+                i {
+                    color: #fff;
+                    transform: scale(1.4);
+                }
+
+            }
+
+            p {
+                padding-top: 8px;
+            }
+
+            i {
+                display: block;
+                margin: auto;
+                margin-top: 10px;
+                transition: 0.3s;
             }
         }
     }

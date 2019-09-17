@@ -20,7 +20,7 @@ const loadable = (loader, loading = loadingComponent) => {
     return Loadable({
         loader,
         loading,
-        delay: 0, //页面加载超过这个ms，pastDelay为true，将显示加载标签
+        delay: 100, //页面加载超过这个ms，pastDelay为true，将显示加载标签
         timeout: 10000 // 页面加载超时，timedOut属性为true，可提升展示刷新按钮
     });
 }

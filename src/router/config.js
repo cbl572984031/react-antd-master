@@ -8,9 +8,9 @@ const Menu = [
         title: 'UI',
         icon: 'scan',
         subs: [
-            { key: '/ui/buttons', title: '按钮', component: 'Buttons' },
+            { key: '/ui/buttons', title: '按钮', component: 'Bottons' },
             { key: '/ui/icons', title: '图标', component: 'Icons' },
-            { key: '/ui/spins', title: '加载中', component: 'Spins' },
+            { key: '/ui/spins', title: '数据录入', component: 'Spins' },
             { key: '/ui/modals', title: '对话框', component: 'Modals' },
             { key: '/ui/notifications', title: '通知提醒框', component: 'Notifications' },
             { key: '/ui/tabs', title: '标签页', component: 'Tabs' },
@@ -85,6 +85,7 @@ const Menu = [
         title: '轮播图',
         icon: 'star',
         component: 'Swiper',
+        auth: true
     },
     {
         key: '/extension',
