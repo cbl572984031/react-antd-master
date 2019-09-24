@@ -125,7 +125,6 @@ class Sider extends React.Component {
                                 {renderMenuList()}
                             </Menu>
                     }
-
                 </FreeScrollBar>
             </div >
         );

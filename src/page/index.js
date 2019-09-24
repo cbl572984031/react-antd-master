@@ -14,5 +14,12 @@ export default {
     Draw,
     LoadingPage,
     Bottons: UI.Buttons,
-    Icons: UI.Icons
+    Icons: UI.Icons,
+    Dropdown: UI.Dropdown,
+    Comment: UI.Comment,
+    PageHeader: UI.PageHeader,
+    Steps: UI.Steps,
+    Tabs: UI.Tabs,
+    Editor: UI.Editor,
+    Drag: UI.Drag
 }

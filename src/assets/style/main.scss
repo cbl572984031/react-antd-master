@@ -577,20 +577,12 @@ body {
 
 // UI 
 .button_dome {
-    .ant-col {
-        padding-bottom: 20px;
-    }
-
     .ant-btn {
         margin: 0 10px 10px 0;
     }
 }
 
 .icon_dome {
-    .ant-col {
-        padding-bottom: 20px;
-    }
-
     i {
         font-size: 30px;
         color: #333;
@@ -631,6 +623,30 @@ body {
                 transition: 0.3s;
             }
         }
+    }
+}
+
+.dropdown_dome {
+    .ant-dropdown-trigger {
+        margin: 0 8px 8px 0;
+    }
+}
+
+.tabs_dome {
+    .ant-tag {
+        margin-bottom: 8px;
+    }
+}
+
+.button_dome,
+.icon_dome,
+.dropdown_dome,
+.pageHeader_dome,
+.steps_dome,
+.tabs_dome,
+.drag_dome {
+    .ant-col {
+        padding-bottom: 20px;
     }
 }
 

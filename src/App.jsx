@@ -28,14 +28,14 @@ class App extends Component {
         })
     }
 
-    handlerTogglerCollapsed() {
+    handlerTogglerCollapsed = () => {
         let { inlineCollapsed } = this.state;
         this.setState({
             inlineCollapsed: !inlineCollapsed
         });
     }
 
-    handlerColorChange(e) {
+    handlerColorChange = (e) => {
         this.setState({
             themeColor: e.hex
         })
@@ -50,7 +50,7 @@ class App extends Component {
             <div className="App">
                 <Layout style={{ height: '100%' }}>
                     <Header>
-                        <RHead isMobile={this.props.isMobile} collapsed={this.state.inlineCollapsed} TogglerCollapsed={e => this.handlerTogglerCollapsed()}></RHead>
+                        <RHead isMobile={this.props.isMobile} collapsed={this.state.inlineCollapsed} TogglerCollapsed={this.handlerTogglerCollapsed}></RHead>
                     </Header>
                     <Layout>
                         {!this.props.isMobile &&
@@ -63,7 +63,7 @@ class App extends Component {
                             <div className={this.state.isShowSketchPicker ? 'color_picker_box color_picker_box_active' : 'color_picker_box'} >
                                 <div className='color_picker_menu' onClick={e => { this.setState({ isShowSketchPicker: !this.state.isShowSketchPicker }) }}><Icon type="pic-right" className="color_picker" /></div>
                                 <div>
-                                    <SketchPicker color={this.state.themeColor} onChangeComplete={(e) => { this.handlerColorChange(e); }} />
+                                    <SketchPicker color={this.state.themeColor} onChangeComplete={this.handlerColorChange} />
                                 </div>
                             </div>
                         </Content>
