@@ -18,7 +18,7 @@ class Content extends Component {
     componentDidMount() {
         this.setState({
             listenEvent: this.props.history.listen(location => {
-                if (this.state.pathname != location.pathname) {
+                if (this.state.pathname !== location.pathname) {
                     this.setState({
                         isShowBG: true,
                         pathname: location.pathname

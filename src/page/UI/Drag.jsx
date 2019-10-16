@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col, Card, Tag } from 'antd';
+import { Row, Col, Card } from 'antd';
 import FreeScrollBar from 'react-free-scrollbar'
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 let MenuList = ['a', 'b', 'c', 'd', 'e']

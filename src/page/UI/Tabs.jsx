@@ -31,7 +31,7 @@ class Tabs extends Component {
                     <Card bordered={false}>
                         <Tag>Tag 1</Tag>
                         <Tag>
-                            <a>Link</a>
+                            <a href=''>Link</a>
                         </Tag>
                         <Tag closable>
                             Tag 2

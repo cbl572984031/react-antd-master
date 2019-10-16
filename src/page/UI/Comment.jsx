@@ -30,7 +30,7 @@ class CommentList extends React.Component {
     }
 }
 
-class Home extends React.Component {
+class Comments extends React.Component {
     state = {
         value: '',
         id: null,
@@ -105,4 +105,5 @@ export default connect(state => ({
 }), {
         add,
         remove
-    })(Home)
+    }
+)(Comments)

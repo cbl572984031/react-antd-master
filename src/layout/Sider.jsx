@@ -72,15 +72,16 @@ class Sider extends React.Component {
         MenuList = this.reorder(MenuList, result.source.index, result.destination.index);
     };
 
-    handlerMenuClick = (item) => {
+    handleMenuClick = (item) => {
         this.setState({
             selectedKeys: [item.key]
         })
     }
 
     render() {
+        const menuStyle = { width: '100%', height: '100%', userSelect: 'none' }
         return (
-            <div id="menu" style={{ width: '100%', height: '100%', userSelect: 'none' }}>
+            <div id="menu" style={menuStyle}>
                 <FreeScrollBar autohide={true} timeout={300}>
                     {
                         !this.props.isMobile ?
@@ -100,7 +101,7 @@ class Sider extends React.Component {
                                                                 <Menu
                                                                     mode="inline"
                                                                     multiple={false}
-                                                                    onSelect={this.handlerMenuClick}
+                                                                    onSelect={this.handleMenuClick}
                                                                     selectedKeys={this.state.selectedKeys}
                                                                 >
                                                                     {item.subs

@@ -20,9 +20,12 @@ class Root extends Component {
     }
 
     render() {
-        let renderMenu = menus.map(item => item.subs ? item.subs.map(i => this.MenuMap(i)) : this.MenuMap(item))
+        const renderMenu = menus.map(item => item.subs ? item.subs.map(i => this.MenuMap(i)) : this.MenuMap(item))
+        const MobileStyle = { height: '100%', fontSize: '14px' }
+        const PCStyle = { padding: '15px', fontSize: '14px', height: '100%' }
+        
         return (
-            <div style={this.props.isMobile ? { height: '100%', fontSize: '14px' } : { padding: '15px', fontSize: '14px', height: '100%' }} >
+            <div style={this.props.isMobile ? MobileStyle : PCStyle} >
                 <Switch>
                     {
                         renderMenu

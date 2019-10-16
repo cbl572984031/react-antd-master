@@ -14,13 +14,13 @@ class Head extends Component {
         }
     }
 
-    visibleClose() {
+    visibleClose = () => {
         this.setState({
             visible: !this.state.visible
         })
     }
 
-    handlerScreenfull() {
+    handleScreenfull = () => {
         if (!screenfull.enabled) {
             message.error('暂不支持全屏')
             return
@@ -43,14 +43,15 @@ class Head extends Component {
                 </Sider>
             </Layout>
         )
+        const IconStyle = { fontSize: '20px', color: '#fff', verticalAlign: 'top', marginTop: '22px', marginRight: '20px' }
         return (
             <div id='header'>
                 {this.props.isMobile ? (
                     <React.Fragment>
                         {/* 左侧滑出 */}
-                        <Icon className='menu_trigger' onClick={e => { this.visibleClose() }} type={'menu-unfold'} />
+                        <Icon className='menu_trigger' onClick={this.visibleClose} type={'menu-unfold'} />
                         <Drawer
-                            onClose={e => { this.visibleClose() }}
+                            onClose={this.visibleClose}
                             placement="left"
                             closable={false}
                             visible={this.state.visible}
@@ -72,11 +73,11 @@ class Head extends Component {
                 ) :
                     <React.Fragment >
                         <div className={this.props.collapsed ? 'mini_logo' : 'logo'}></div>
-                        <Icon className='menu_trigger' type={this.props.collapsed ? 'menu-unfold' : 'menu-fold'} onClick={() => { this.props.TogglerCollapsed(); }} />
+                        <Icon className='menu_trigger' type={this.props.collapsed ? 'menu-unfold' : 'menu-fold'} onClick={this.props.TogglerCollapsed} />
                     </React.Fragment>
                 }
                 <div className="userInfo">
-                    <Icon onClick={e => { this.handlerScreenfull() }} style={{ fontSize: '20px', color: '#fff', verticalAlign: 'top', marginTop: '22px', marginRight: '20px' }} type="fullscreen" />
+                    <Icon onClick={this.handleScreenfull} style={IconStyle} type="fullscreen" />
                     <Avatar className="avatar" icon="user" />
                     <Dropdown overlay={menu} trigger={['click']}>
                         <span className="userName">

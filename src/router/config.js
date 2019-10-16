@@ -84,19 +84,6 @@ const Menu = [
         icon: 'star',
         component: 'Swiper',
         auth: true
-    },
-    {
-        key: '/extension',
-        title: '功能扩展',
-        icon: 'bars',
-        subs: [
-            {
-                key: '/extension/queryParams',
-                title: '问号形式参数',
-                component: 'QueryParams',
-                query: '?param1=1&param2=2',
-            },
-        ],
     }
 ];
 

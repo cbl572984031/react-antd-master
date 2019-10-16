@@ -44,3 +44,5 @@ react-loadable                  路由懒加载
 screenfull                      全屏
 
 clipboard                       文本复制
+
+braft-editor                    富文本编辑器

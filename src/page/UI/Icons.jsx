@@ -10,7 +10,7 @@ class Icons extends Component {
         this.props.setBG(false)
     }
 
-    handlerCopy = () => {
+    handleCopy = () => {
         message.success('copy success!')
     }
 
@@ -45,7 +45,7 @@ class Icons extends Component {
                                 {
                                     iconList.map((item, index) => {
                                         return (
-                                            <li key={index} onClick={this.handlerCopy} data-clipboard-text={`<Icon type="${item}" />`}>
+                                            <li key={index} onClick={this.handleCopy} data-clipboard-text={`<Icon type="${item}" />`}>
                                                 <Icon type={item} />
                                                 <p>{item}</p>
                                             </li>
