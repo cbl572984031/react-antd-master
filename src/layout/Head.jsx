@@ -21,6 +21,7 @@ class Head extends Component {
     }
 
     handleScreenfull = () => {
+        // 切换全屏显示
         if (!screenfull.enabled) {
             message.error('暂不支持全屏')
             return

@@ -27,7 +27,7 @@ const Menu = [
             {
                 key: '/animation/basicAnimations',
                 title: '基础动画',
-                component: 'BasicAnimations',
+                component: 'BasicAnimation',
             },
             {
                 key: '/animation/exampleAnimations',

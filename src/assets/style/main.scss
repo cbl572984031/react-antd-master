@@ -650,6 +650,17 @@ body {
     }
 }
 
+.animation-demo {
+    user-select: none;
+    .mb-m {
+        margin-bottom: 20px;
+    }
+
+    .ant-col {
+        margin-bottom: 10px;
+    }
+}
+
 // 轮播图
 #banner_one {
     position: relative;

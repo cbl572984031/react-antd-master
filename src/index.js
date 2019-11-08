@@ -9,7 +9,6 @@ import store from './store/index'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import 'moment/locale/zh-cn';
 import './assets/style/main.css';
-import './assets/style/animate.css'
 import Loading from './component/Loading'
 
 const App = Loading(() => import('./App'))

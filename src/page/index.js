@@ -6,6 +6,7 @@ const Home = Loading(() => import('@/page/Home'))
 const Swiper = Loading(() => import('@/page/Swiper'))
 const Echarts_China = Loading(() => import('@/page/Chart/echarts_China'))
 const Draw = Loading(() => import('@/page/Chart/Draw_Galaxy'))
+const BasicAnimation = Loading(() => import('@/page/Animation/BasicAnimation'))
 
 export default {
     Home,
@@ -21,5 +22,6 @@ export default {
     Steps: UI.Steps,
     Tabs: UI.Tabs,
     Editor: UI.Editor,
-    Drag: UI.Drag
+    Drag: UI.Drag,
+    BasicAnimation
 }

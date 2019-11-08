@@ -66,6 +66,7 @@ class Sider extends React.Component {
     };
 
     onDragEnd = result => {
+        // 拖拽完成
         if (!result.destination) {
             return;
         }
@@ -73,6 +74,7 @@ class Sider extends React.Component {
     };
 
     handleMenuClick = (item) => {
+        // 点击菜单
         this.setState({
             selectedKeys: [item.key]
         })
