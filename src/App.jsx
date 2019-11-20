@@ -5,7 +5,7 @@ import RContent from './layout/Content'
 import { SketchPicker } from 'react-color';
 import { Layout, Icon } from 'antd';
 import { connect } from 'react-redux';
-import { setMobile } from '@/store/isMobile/action'
+import { setMobile } from './store/isMobile/action'
 
 const { Header, Sider, Content } = Layout;
 

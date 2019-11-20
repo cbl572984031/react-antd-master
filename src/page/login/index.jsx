@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import Stars from "@/assets/js/star"
-import { getVCcode } from '@/axios/index'
+import Stars from "../../assets/js/star"
+import { getVCcode } from '../../axios/index'
 import { withRouter } from 'react-router-dom'
 
 
@@ -51,7 +51,7 @@ class Login extends Component {
                     <p>>: <span>{this.state.text}</span></p>
                 </div>
                 <canvas id="canvas"></canvas>
-                <img className="bg" draggable="false" src={require('@/assets/imgs/Login/react.png')} alt="背景" />
+                <img className="bg" draggable="false" src={require('../../assets/imgs/Login/react.png')} alt="背景" />
                 <div className="title">
                     {/* <img src={require('../logo.svg')} draggable="false" alt="react" className="react" /> */}
                     <p id="title">react admin</p>

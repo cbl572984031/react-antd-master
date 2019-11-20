@@ -2,7 +2,7 @@ import React from 'react'
 import { Comment, Avatar, Form, Button, List, Input } from 'antd';
 import moment from 'moment';
 import { connect } from 'react-redux';
-import { add, remove } from '@/store/comment/action';
+import { add, remove } from '../../store/comment/action';
 
 const { TextArea } = Input;
 

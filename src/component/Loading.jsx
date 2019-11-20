@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Loadable from 'react-loadable';
-import '@/assets/style/Loading/index.css'
+import '../assets/style/Loading/index.css'
 
 //通用的过场组件
 const loadingComponent = (props) => {

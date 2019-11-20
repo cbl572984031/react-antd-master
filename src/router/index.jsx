@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom'
 import menus from './config'
 import qs from 'qs'
-import Page from '@/page'
+import Page from '../page'
 
 class Root extends Component {
 

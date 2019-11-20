@@ -29,33 +29,33 @@ const Menu = [
                 title: '基础动画',
                 component: 'BasicAnimation',
             },
-            {
-                key: '/animation/exampleAnimations',
-                title: '动画案例',
-                component: 'ExampleAnimations',
-            },
+            // {
+            //     key: '/animation/exampleAnimations',
+            //     title: '动画案例',
+            //     component: 'ExampleAnimations',
+            // },
         ],
     },
-    {
-        key: '/table',
-        title: '表格',
-        icon: 'copy',
-        subs: [
-            { key: '/table/basicTable', title: '基础表格', component: 'BasicTable' },
-            { key: '/table/advancedTable', title: '高级表格', component: 'AdvancedTable' },
-            {
-                key: '/table/asynchronousTable',
-                title: '异步表格',
-                component: 'AsynchronousTable',
-            },
-        ],
-    },
-    {
-        key: '/form',
-        title: '表单',
-        icon: 'edit',
-        subs: [{ key: '/form/basicForm', title: '基础表单', component: 'BasicForm' }],
-    },
+    // {
+    //     key: '/table',
+    //     title: '表格',
+    //     icon: 'copy',
+    //     subs: [
+    //         { key: '/table/basicTable', title: '基础表格', component: 'BasicTable' },
+    //         { key: '/table/advancedTable', title: '高级表格', component: 'AdvancedTable' },
+    //         {
+    //             key: '/table/asynchronousTable',
+    //             title: '异步表格',
+    //             component: 'AsynchronousTable',
+    //         },
+    //     ],
+    // },
+    // {
+    //     key: '/form',
+    //     title: '表单',
+    //     icon: 'edit',
+    //     subs: [{ key: '/form/basicForm', title: '基础表单', component: 'BasicForm' }],
+    // },
     {
         key: '/chart',
         title: '图表',
@@ -71,11 +71,11 @@ const Menu = [
         icon: 'safety',
         subs: [
             { key: '/demo/loading', title: '加载动画', component: 'LoadingPage' },
-            {
-                key: '/demo/routerEnter',
-                title: '路由拦截',
-                component: 'RouterEnter'
-            },
+            // {
+            //     key: '/demo/routerEnter',
+            //     title: '路由拦截',
+            //     component: 'RouterEnter'
+            // },
         ],
     },
     {

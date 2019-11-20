@@ -1,12 +1,12 @@
 import Loading from '../component/Loading'
-import LoadingPage from '@/page/Dome/Loading'
-import UI from '@/page/UI'
+import LoadingPage from '../page/dome/loading.jsx'
+import UI from '../page/UI'
 
-const Home = Loading(() => import('@/page/Home'))
-const Swiper = Loading(() => import('@/page/Swiper'))
-const Echarts_China = Loading(() => import('@/page/Chart/echarts_China'))
-const Draw = Loading(() => import('@/page/Chart/Draw_Galaxy'))
-const BasicAnimation = Loading(() => import('@/page/Animation/BasicAnimation'))
+const Home = Loading(() => import('../page/home'))
+const Swiper = Loading(() => import('../page/swiper'))
+const Echarts_China = Loading(() => import('../page/Chart/echarts_China'))
+const Draw = Loading(() => import('../page/Chart/Draw_Galaxy'))
+const BasicAnimation = Loading(() => import('../page/Animation/BasicAnimation'))
 
 export default {
     Home,

@@ -12,7 +12,7 @@ import './assets/style/main.css';
 import Loading from './component/Loading'
 
 const App = Loading(() => import('./App'))
-const Login = Loading(() => import('./page/Login'))
+const Login = Loading(() => import('./page/login'))
 
 moment.locale('zh-cn');
 
